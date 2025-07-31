@@ -3,5 +3,7 @@ export const preContent = `
 `;
 
 export const extraProviders = {
-    'MiniappProvider'
+    'Miniapp.Provider': {
+        value: "MiniappProvider",
+    }
 };
