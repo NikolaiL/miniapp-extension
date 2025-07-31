@@ -1,7 +1,8 @@
 export const preContent = `
-import { MiniappProvider } from "./MiniappProvider";
+    import { MiniappProvider } from "./MiniappProvider";
 `;
 
 export const extraProviders = {
-    `$$MiniappProvider$$`
+    'MiniappProvider': {
+    }
 };
