@@ -1,4 +1,4 @@
-export const additionalVars: `# essential miniapp related variables
+export const additionalVars = `# essential miniapp related variables
 NEXT_PUBLIC_ONCHAINKIT_PROJECT_NAME=
 NEXT_PUBLIC_URL=
 NEXT_PUBLIC_ONCHAINKIT_API_KEY=
