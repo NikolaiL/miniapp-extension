@@ -2,6 +2,7 @@
 
 This extension provides basic functionality to start a Farcaster MiniApp development
 
+
 ## Installation
 
 1. Create a new project with MiniApp extension:
@@ -29,3 +30,5 @@ ngrok http http://localhost:3000 --url https://yoursubdomian.ngrok.dev
 
 
 Your miniapp should load and show your Farcaster Wallet.
+
+![MiniApp Screenshot](images/MiniAppScreenshot.png)
