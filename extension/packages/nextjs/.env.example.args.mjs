@@ -1,7 +1,7 @@
-export const additionalVars = `# essential miniapp related variables
-NEXT_PUBLIC_ONCHAINKIT_PROJECT_NAME=
+export const additionalVars = `#
+# essential miniapp related variables
+NEXT_PUBLIC_APP_NAME=
 NEXT_PUBLIC_URL=
-NEXT_PUBLIC_ONCHAINKIT_API_KEY=
 
 # essential miniapp manifest related  variables
 # you can get create them at https://farcaster.xyz/~/developers/mini-apps/manifest
