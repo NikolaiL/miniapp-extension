@@ -1,6 +1,6 @@
 # Farcaster MiniApp Extension for SE-2
 
-This extension provides basic functionality to start a Farcaster MiniApp development with <a href="https://scaffoldeth.io" target="_blank">Scaffold-ETH 2</a>
+This extension provides basic functionality to start a Farcaster MiniApp development with [Scaffold-ETH 2](https://scaffoldeth.io){:target="_blank"}
 
 
 ## Installation
