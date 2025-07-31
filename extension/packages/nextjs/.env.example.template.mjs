@@ -1,9 +1,12 @@
-# Template for NextJS environment variables.
+import { withDefaults } from "../../../utils.js";
+
+const contents = ({ additionalVars }) => {
+  return `# Template for NextJS environment variables.
 
 # For local development, copy this file, rename it to .env.local, and fill in the values.
 # When deploying live, you'll need to store the vars in Vercel/System config.
 
-# If not set, we provide default values (check `scaffold.config.ts`) so developers can start prototyping out of the box,
+# If not set, we provide default values (check \`scaffold.config.ts\`) so developers can start prototyping out of the box,
 # but we recommend getting your own API Keys for Production Apps.
 
 # To access the values stored in this env file you can use: process.env.VARIABLENAME
@@ -11,8 +14,12 @@
 # More info: https://nextjs.org/docs/pages/building-your-application/configuring/environment-variables
 NEXT_PUBLIC_ALCHEMY_API_KEY=
 NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID=
+${additionalVars.join("\n")}
+`
+};
 
-# essential miniapp related variables
+export default withDefaults(contents, {
+  additionalVars: `# essential miniapp related variables
 NEXT_PUBLIC_ONCHAINKIT_PROJECT_NAME=
 NEXT_PUBLIC_URL=
 NEXT_PUBLIC_ONCHAINKIT_API_KEY=
@@ -36,3 +43,5 @@ NEXT_PUBLIC_APP_TAGLINE=
 NEXT_PUBLIC_APP_OG_TITLE=
 NEXT_PUBLIC_APP_OG_DESCRIPTION=
 NEXT_PUBLIC_APP_OG_IMAGE=
+`
+});
