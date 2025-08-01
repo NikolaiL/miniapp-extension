@@ -2,8 +2,10 @@
 // Reference the template file that will use this file: https://github.com/scaffold-eth/create-eth/blob/main/templates/base/packages/nextjs/app/page.tsx.template.mjs
 
 // Default args:
-export const preContent = `import { sdk } from "@farcaster/miniapp-sdk";`;
+export const preContent = `import { MiniappUserInfo } from "~~/components/MiniappUserInfo";`;
 export const description = `
+{/* MiniApp User Info */}
+<MiniappUserInfo />
 <p className="text-center text-lg">
   Get started by editing{" "}
   <code className="italic bg-base-300 text-base font-bold max-w-full break-words break-all inline-block">
