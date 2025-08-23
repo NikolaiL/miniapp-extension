@@ -1,0 +1,141 @@
+---
+description: 
+globs: 
+alwaysApply: true
+title: Farcaster Mini Apps
+---
+
+# Farcaster Mini Apps
+
+## Overview
+Mini apps are web apps built with HTML, CSS, and Javascript that can be discovered and used within Farcaster clients. You can use an SDK to access native Farcaster features, like authentication, sending notifications, and interacting with the user's wallet.
+
+## Setup
+For this project,  MiniApp SDK is already isntalled.
+
+
+## Making Your App Display
+After app loads, you must call `sdk.actions.ready()` to hide the splash screen and display your content:
+
+```javascript
+import { sdk } from '@farcaster/miniapp-sdk'
+
+// After your app is fully loaded and ready to display
+await sdk.actions.ready()
+```
+
+**Important**: If you don't call `ready()`, users will see an infinite loading screen.
+
+For this isntallations it is already implemented in MiniappProvider.tsx
+
+## Authentication with Quick Auth
+Quick Auth is a lightweight service built on top of Sign In with Farcaster that makes it easy to get an authenticated session for a Farcaster user.
+
+### Making authenticated requests
+Use `sdk.quickAuth.fetch` to make an authenticated request:
+
+```typescript
+import { sdk } from '@farcaster/miniapp-sdk'
+
+const res = await sdk.quickAuth.fetch('https://your-backend.com/api/me')
+if (res.ok) {
+  const user = await res.json()
+  // Handle user data
+}
+```
+
+### Getting a session token directly
+Use `sdk.quickAuth.getToken` to get a Quick Auth session token:
+
+```typescript
+import { sdk } from '@farcaster/miniapp-sdk'
+
+const { token } = await sdk.quickAuth.getToken()
+// Use token for authenticated requests
+```
+
+### Validating session tokens on your server
+Install the Quick Auth library:
+```bash
+npm install @farcaster/quick-auth
+```
+
+Then validate tokens:
+```typescript
+import { createClient } from '@farcaster/quick-auth'
+
+const client = createClient()
+
+const payload = await client.verifyJwt({
+  token: authorization.split(' ')[1] as string,
+  domain: 'your-domain.com',
+})
+
+const fid = payload.sub // The FID of the signed in user
+```
+
+## Mini App Embeds
+Mini App Embeds are an OpenGraph-inspired metadata standard that lets any page in a Mini App be rendered as a rich object that can launch users into an application.
+
+### Metatags
+A Mini App URL must have a MiniAppEmbed in a serialized form in the `fc:miniapp` meta tag in the HTML `<head>`:
+
+```html
+<meta property="fc:miniapp" content='{
+  "version": "1",
+  "imageUrl": "https://example.com/image.jpg",
+  "button": {
+    "title": "My Mini App",
+    "action": {
+      "url": "https://example.com/miniapp"
+    }
+  }
+}' />
+```
+
+### Schema
+| Property | Type | Required | Description | Constraints |
+| -------- | ------ | -------- | ----------------------- | ---------------------------------------------- |
+| version | string | Yes | Version of the embed. | Must be "1" |
+| imageUrl | string | Yes | Image url for the embed | Max 1024 characters. Must be 3:2 aspect ratio. |
+| button | object | Yes | Button | |
+
+#### Button Schema
+| Property | Type | Required | Description | Constraints |
+| -------- | ------ | -------- | -------------- | --------------------------- |
+| title | string | Yes | Mini App name. | Max length 32 characters |
+| action | object | Yes | Action to perform when button is clicked | |
+
+## Why Farcaster Doesn't Need OAuth 2.0
+OAuth exists to let three separate parties (user → platform → third-party app) establish mutual trust. Farcaster is built on a decentralized architecture that collapses this triangle:
+
+### 1. Identity & Authentication
+- **User-owned keys**: A user controlled cryptographic signature proves control of a Farcaster ID—no intermediary.
+- **Dev mappings**:
+  - Sign In with X → Sign-in with Farcaster (SIWF)
+  - OAuth 2.0 Authorization Flow → Quick Auth
+
+### 2. Data Access & Permissions
+- **Open, replicated data**: Social data like casts, reactions, and profiles live on Snapchain and can be read by anyone.
+- **No permission scopes**: Everything is already public; you filter what you need instead of requesting scopes.
+- **Zero-cost reads**: Sync the chain yourself or hit a public indexer—no rate caps, no $5k +/month fire-hoses.
+- **Cryptographic writes**: Users can delegate a key to applications so the applications can writes on their behalf.
+
+### Builder Takeaways
+1. **Skip OAuth flows—wallet signature = auth.**
+2. **Forget permission scopes—use filters.**
+3. **Enjoy building permissionlessly**
+
+## Resources
+- [Quick Auth](https://miniapps.farcaster.xyz/docs/sdk/quick-auth)
+- [Neynar SDK for one-call Snapchain queries](https://docs.neynar.com/reference/quickstart)
+- [App Keys](https://docs.farcaster.xyz/reference/warpcast/signer-requests)
+- [Full Documentation](https://miniapps.farcaster.xyz/llms-full.txt)
+
+## SDK Functions
+- `sdk.actions.ready()` - Hide splash screen and display content
+- `sdk.quickAuth.getToken()` - Get a signed Quick Auth token
+- `sdk.quickAuth.fetch()` - Make an authenticated fetch request
+- `sdk.quickAuth.token` - Returns an active token if present
+
+Find the relevant information from the documentation and the codebase. Think step by step before answering the question.
