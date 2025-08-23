@@ -32,3 +32,8 @@ ngrok http http://localhost:3000 --url https://yoursubdomian.ngrok.dev
 Your miniapp should load and show your Farcaster Wallet.
 
 ![MiniApp Screenshot](images/MiniAppScreenshot.png)
+
+TODO:
+- add manifest generation
+- add ponder option
+
