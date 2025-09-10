@@ -35,5 +35,5 @@ Your miniapp should load and show your Farcaster Wallet.
 
 TODO:
 - add manifest generation
-- add ponder option
+- add ponder 0.12 (or later) and modifications for live queries
 
