@@ -1,7 +1,7 @@
 {
     "dependencies": {
-      "@farcaster/miniapp-sdk": "^0.1.9",
-      "@farcaster/miniapp-wagmi-connector": "^1.0.0",
+      "@farcaster/miniapp-sdk": "^0.2.1",
+      "@farcaster/miniapp-wagmi-connector": "^1.1.0",
       "graphql": "^16.9.0",
       "graphql-request": "^7.1.0"
     }
