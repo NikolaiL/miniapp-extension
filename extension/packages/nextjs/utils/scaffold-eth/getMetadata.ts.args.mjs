@@ -16,7 +16,7 @@ function buildMiniappEmbed(imageUrl: string, imageRelativePath: string, title: s
         type: "launch_miniapp",
         name: title || process.env.NEXT_PUBLIC_APP_NAME,
         splashImageUrl: process.env.NEXT_PUBLIC_APP_SPLASH_IMAGE || new URL("/favicon.png", miniappBaseUrl).toString(),
-        splashBackgroundColor: process.env.NEXT_PUBLIC_SPLASH_BACKGROUND_COLOR || "#000000",
+        splashBackgroundColor: process.env.NEXT_PUBLIC_SPLASH_BACKGROUND_COLOR || "#212638",
       },
     },
   });
