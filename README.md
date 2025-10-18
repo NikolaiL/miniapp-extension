@@ -12,12 +12,16 @@ npx create-eth@latest -e NikolaiL/miniapp-extension
 ```
 
 
-2. After doing 
+2. Copy packages/nextjs/.env.example to packages/nextjs/.env
+
+
+3. After doing 
 
 ```typescript
 yarn chain
 yarn deploy
 yarn start
+yarn ponder:dev
 ```
 
 start ngrok (or other) externally available tunnel
@@ -26,7 +30,9 @@ start ngrok (or other) externally available tunnel
 ngrok http http://localhost:3000 --url https://yoursubdomian.ngrok.dev
 ```
 
-3. Go to https://farcaster.xyz/~/developers/mini-apps/preview , enter your app domain and click "Open URL as Mini App"
+4. Update NEXT_PUBLIC_URL in packages/nextjs/.env for your domain
+
+5. Go to https://farcaster.xyz/~/developers/mini-apps/preview , enter your app domain and click "Open URL as Mini App"
 
 
 Your miniapp should load and show your Farcaster Wallet.
