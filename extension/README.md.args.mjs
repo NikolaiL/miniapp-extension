@@ -2,7 +2,15 @@ export const extraContents = `## 🚀 Miniapp Functionality
 
 Miniapp extension adds functionality to easily create a Farcaster/Base MiniApp. It will take care of manifest file generation at .well-known/farcatser.json as well as generation of the metatags required for miniapp rendering in Farcaster/Base feed.
 
-Required steps:
+### Requirements
+
+According to [MiniApp SDK documentation](https://miniapps.farcaster.xyz/docs/getting-started):
+
+- Node.js 22.11.0 or higher (LTS version recommended)
+- Check your version: \`\`\`node --version\`\`\`
+- Download from [nodejs.org](https://nodejs.org)
+
+### Installation
 - Copy packages/nextjs/.env.example to packages/nextjs/.env
 - Run ngrok (or other) externally available tunnel
 \`\`\`typescript

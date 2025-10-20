@@ -2,6 +2,14 @@
 
 This extension provides basic functionality to start a Farcaster MiniApp development with [Scaffold-ETH 2](https://scaffoldeth.io)
 
+## Requirements
+
+According to [MiniApp SDK documentation](https://miniapps.farcaster.xyz/docs/getting-started):
+
+Node.js 22.11.0 or higher (LTS version recommended)
+- Check your version: ```node --version```
+- Download from [nodejs.org](https://nodejs.org)
+
 
 ## Installation
 
@@ -11,20 +19,36 @@ This extension provides basic functionality to start a Farcaster MiniApp develop
 npx create-eth@latest -e NikolaiL/miniapp-extension
 ```
 
+and 
+
 
 2. Copy packages/nextjs/.env.example to packages/nextjs/.env
 
 
-3. After doing 
+3. cd to your mini app dir and:
 
+
+-- Run a local network in the first terminal:
 ```typescript
 yarn chain
+```
+
+- On a second terminal, deploy the test contract:
+```typescript
 yarn deploy
+```
+
+- On a third terminal, start your NextJS app:
+```typescript
 yarn start
+```
+
+- On a forth terminal, start your ponder devs server:
+```typescript
 yarn ponder:dev
 ```
 
-start ngrok (or other) externally available tunnel
+ - On a fifth terminal, start ngrok (or other) externally available tunnel:
 
 ```typescript
 ngrok http http://localhost:3000 --url https://yoursubdomian.ngrok.dev
