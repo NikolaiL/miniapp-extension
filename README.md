@@ -28,7 +28,7 @@ and
 3. cd to your mini app dir and:
 
 
--- Run a local network in the first terminal:
+- Run a local network in the first terminal:
 ```typescript
 yarn chain
 ```
