@@ -83,6 +83,6 @@ TODO:
 - [x] added ponder 0.14.1  
 - [ ] add live query example
 - [ ] add MiniApp Demo Page with all available functions
-- [ ] add readme section about ponder
+- [x] add readme section about ponder
 - [ ] add manifest accountAssociation values generation
 
