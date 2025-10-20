@@ -19,7 +19,14 @@ export const MiniappUserInfo = () => {
           {user.username && <p className="text-xs">Username: {user.username}</p>}
           {user.displayName && <p className="text-xs">Display Name: {user.displayName}</p>}
           {user.pfpUrl && (
-            <Image src={user.pfpUrl} alt="Profile" width={32} height={32} className="rounded-full mx-auto mt-1" unoptimized />
+            <Image
+              src={user.pfpUrl}
+              alt="Profile"
+              width={32}
+              height={32}
+              className="rounded-full mx-auto mt-1"
+              unoptimized
+            />
           )}
         </div>
       )}

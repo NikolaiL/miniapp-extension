@@ -1,6 +1,31 @@
-export const extraContents = `## 🚀 Setup Ponder Extension
+export const extraContents = `## 🚀 Miniapp Functionality
 
-This extension allows to use Ponder (https://ponder.sh/) for event indexing on an SE-2 dapp.
+Miniapp extension adds functionality to easily create a Farcaster/Base MiniApp. It will take care of manifest file generation at .well-known/farcatser.json as well as generation of the metatags required for miniapp rendering in Farcaster/Base feed.
+
+Required steps:
+- Copy packages/nextjs/.env.example to packages/nextjs/.env
+- Run ngrok (or other) externally available tunnel
+\`\`\`typescript
+ngrok http http://localhost:3000 --url https://yoursubdomian.ngrok.dev
+\`\`\`
+- Update \`\`\`NEXT_PUBLIC_URL\`\`\` in packages/nextjs/.env for your domain
+- Go to https://farcaster.xyz/~/developers/mini-apps/preview , enter your app domain and click "Open URL as Mini App"
+
+Your miniapp should render as a MiniApp in Farcaster Preview
+
+![MiniApp Preview](https://raw.githubusercontent.com/NikolaiL/miniapp-extension/master/images/MiniAppScreenshot.png)
+
+For production you will need to generate the manifest accountAssociation values for your production domain and add them to the .env file (\`\`\`FARCASTER_HEADER, FARCASTER_PAYLOAD, FARCASTER_SIGNATURE\`\`\`). You can generate them using [Farcaster Manifest Tools](https://farcaster.xyz/~/developers/mini-apps/manifest).
+
+### 🔗 Links
+
+- [Farcaster MiniApp Documentation](https://miniapps.farcaster.xyz)
+- [Farcaster MiniApp DevTools](https://farcaster.xyz/~/developers/)
+- [Base Miniapp Preview](https://www.base.dev/preview)
+
+## 🚀Ponder Setup
+
+This extension also allows to use Ponder (https://ponder.sh/) for event indexing on an SE-2 dapp.
 
 Ponder is an open-source framework for blockchain application backends. With Ponder, you can rapidly build & deploy an API that serves custom data from smart contracts on any EVM blockchain.
 
@@ -33,5 +58,5 @@ To deploy the Ponder indexer please refer to the Ponder Deploy documentation htt
 At **Settings** -> **Deploy** -> you must set **Custom Start Command** to \`\`\`yarn ponder:start\`\`\`.
 
 And then you have to set up the \`\`\`NEXT_PUBLIC_PONDER_URL\`\`\` env variable on your SE-2 dapp to use the deployed ponder indexer.
-
 `;
+
