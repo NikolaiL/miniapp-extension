@@ -78,7 +78,7 @@ And as a cast:
 <img width="502" height="448" alt="Screenshot 2025-10-18 at 19 43 49" src="https://github.com/user-attachments/assets/5bc979b9-6efd-42d9-bf1f-71637577f768" />
 
 
-TODO:
+## TODO
 
 - [x] added ponder 0.14.1  
 - [ ] add live query example
@@ -86,3 +86,7 @@ TODO:
 - [x] add readme section about ponder
 - [ ] add manifest accountAssociation values generation
 
+
+## Acknowledgments
+
+Ponder integration is based on the original Ponder extension by [@damianmarti](https://github.com/damianmarti) and [@technophile-04](https://github.com/technophile-04), see [scaffold-eth/create-eth-extensions/tree/ponder](https://github.com/scaffold-eth/create-eth-extensions/tree/ponder).
